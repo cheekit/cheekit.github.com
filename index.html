@@ -7,6 +7,7 @@ layout: base
         <div class="container">
             <h1>{{ site.inc.title }}</h1>
             {% if site.inc.subtitle %}<h3>{{ site.inc.subtitle }}</h3>{% endif %}
+            <h4 style="color: white">株式会社チイキット</h4>
         
             {% if site.inc.twitter %}
             <a href="https://twitter.com/{{ site.inc.twitter }}" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
@@ -21,14 +22,13 @@ layout: base
     </section>
 </div>
 
-
-<article class="container">
+<article id="blog" class="container">
 {% for post in paginator.posts %}
   {% unless post.draft %}
     <section class="index">
-        <!-- {% if post.author.image %}<img src="/images/{{ post.author.image }}" class="avatar">{% endif %}-->
+        {% if post.author.image %}<img src="https://graph.facebook.com/{{ post.author.facebook }}/picture" class="avatar">{% endif %}
         <div>
-            <h2 class="title"><a href="{{ post.url }}" rel="prefetch">{{ post.title }}</a></h2>
+          <h2 class="title"><a href="{{ post.url }}" rel="prefetch">{{ post.title }}</a> <img src="http://b.hatena.ne.jp/entry/image/{{ site.url }}{{ post.url }}" /></h2>
             <p>{{ post.excerpt }}</p>
             <div class="meta">
                 Written By <address>{{ post.author.name }}</address> &mdash;
